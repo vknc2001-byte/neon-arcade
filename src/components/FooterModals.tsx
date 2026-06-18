@@ -61,8 +61,7 @@ function TermsContent() {
       </Section>
 
       <Section title="3. Games & Third-Party Content">
-        All games available on {SITE_NAME} are embedded from third-party providers
-        (GameDistribution). We do not own the games and are not responsible for their
+        All games available on {SITE_NAME} are embedded from third-party providers. We do not own the games and are not responsible for their
         content, functionality, or availability.
       </Section>
 
@@ -114,7 +113,7 @@ function PrivacyContent() {
       </Section>
 
       <Section title="3. Third-Party Advertising">
-        Ads on this site are served by GameDistribution and their advertising partners.
+        Ads on this site are served by our advertising partners.
         These third parties may use cookies to deliver relevant ads. We do not control
         their data practices — please review their privacy policies separately.
       </Section>
