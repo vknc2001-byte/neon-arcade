@@ -223,7 +223,7 @@ export default function Lobby({ onPlay }: LobbyProps) {
             <div className="flex items-center gap-3">
               {/* Split PIXEL-blinking title */}
               <div className="flex items-center gap-1.5 text-xl md:text-2xl font-black italic tracking-tighter uppercase leading-none cursor-default select-none">
-                <span className="neon-orange text-orange-400">PIXEL</span>
+                <span className="neon-orange text-orange-400">NEON</span>
                 <span className="neon-purple text-purple-400">ARCADE</span>
               </div>
               <span className="hidden sm:inline-block text-[9px] font-bold border border-orange-500/40 text-orange-400 px-2 py-0.5 rounded uppercase tracking-widest">
@@ -413,9 +413,9 @@ export default function Lobby({ onPlay }: LobbyProps) {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>
             <span className="font-black italic tracking-widest text-orange-400 text-sm uppercase neon-flicker">
-              PIXEL Arcade
+              Neon Arcade
             </span>
-            <p className="text-[10px] text-zinc-600 mt-0.5">© 2026 PIXEL Arcade. All rights reserved.</p>
+            <p className="text-[10px] text-zinc-600 mt-0.5">© 2026 Neon Arcade. All rights reserved.</p>
           </div>
           <div className="flex items-center gap-5">
             {(['terms', 'privacy', 'contact'] as ModalType[]).map((m) => (

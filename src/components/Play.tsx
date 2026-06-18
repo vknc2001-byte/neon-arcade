@@ -56,7 +56,7 @@ export default function Play({ gameId, onBackToLobby, onPlayGame }: PlayProps) {
               }}
               className="flex items-center gap-2 text-3xl md:text-4xl font-black italic tracking-tighter uppercase leading-none hover:brightness-110 cursor-pointer transition-all select-none"
             >
-              <span className="neon-orange text-orange-400">PIXEL</span>
+              <span className="neon-orange text-orange-400">NEON</span>
               <span className="neon-purple text-purple-400">ARCADE</span>
             </a>
           </div>
@@ -291,8 +291,8 @@ export default function Play({ gameId, onBackToLobby, onPlayGame }: PlayProps) {
       {/* Footer */}
       <footer className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="text-center sm:text-left">
-          <span className="font-black italic tracking-widest text-orange-400 text-sm uppercase">Pixel Arcade</span>
-          <p className="text-[10px] text-zinc-500 mt-1">© 2026 Pixel Arcade. All rights reserved.</p>
+          <span className="font-black italic tracking-widest text-orange-400 text-sm uppercase">Neon Arcade</span>
+          <p className="text-[10px] text-zinc-500 mt-1">© 2026 Neon Arcade. All rights reserved.</p>
         </div>
       </footer>
     </div>
