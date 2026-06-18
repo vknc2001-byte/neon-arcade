@@ -5,9 +5,9 @@ export type ModalType = 'terms' | 'privacy' | 'contact';
 // ─────────────────────────────────────────────────────────────────────────────
 // ✏️  EDITABLE CONTENT — Fill in your details below
 // ─────────────────────────────────────────────────────────────────────────────
-const SITE_NAME    = 'Pixel Arcade';
-const CONTACT_EMAIL = 'support@pixelarcade.com';   // ← your email
-const SITE_URL     = 'https://pixelarcade.netlify.app'; // ← your site URL
+const SITE_NAME    = 'Neon Arcade';
+const CONTACT_EMAIL = 'arcadecare@zohomail.in';   // ← your email
+const SITE_URL     = 'https://neonarcade.netlify.app'; // ← your site URL
 const LAST_UPDATED = 'June 2026';
 // ─────────────────────────────────────────────────────────────────────────────
 
