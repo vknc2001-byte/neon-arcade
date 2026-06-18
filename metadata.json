@@ -1,0 +1,6 @@
+{
+  "name": "Neon Arcade",
+  "description": "High-octane premium gaming portal with futuristic digital interfaces.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

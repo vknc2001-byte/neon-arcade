@@ -1,0 +1,17 @@
+{
+  "name": "Pixel Arcade | High-Octane Gaming",
+  "short_name": "Pixel Arcade",
+  "description": "Premium browser gaming portal. Free to play, no downloads.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#06b6d4",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

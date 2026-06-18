@@ -1,0 +1,84 @@
+/* ── Fonts — must come first ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Space+Grotesk:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+/* ── Tailwind ────────────────────────────────────────────────────────────── */
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "Space Grotesk", sans-serif;
+
+  --color-primary: #f97316;
+  --color-on-primary: #431407;
+  --color-primary-container: #ea580c;
+  --color-on-primary-container: #ffffff;
+  --color-secondary: #a855f7;
+  --color-on-secondary: #3b0764;
+  --color-secondary-container: #9333ea;
+  --color-on-secondary-container: #ffffff;
+  --color-surface: #0a0a0a;
+  --color-surface-container: #121212;
+  --color-surface-container-low: #0a0a0a;
+  --color-background: #050505;
+}
+
+body {
+  background-color: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+/* Retro grid */
+.retro-grid {
+  background-image: linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #f97316; }
+
+/* Hide scrollbar for filter bar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Neon flicker — like a real neon sign ───────────────────────────────── */
+@keyframes neon-flicker-orange {
+  0%, 18%, 20%, 50%, 52%, 90%, 92%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 6px #f97316, 0 0 14px #f97316, 0 0 30px #f97316;
+  }
+  19%, 51%, 91% { opacity: 0.25; text-shadow: none; }
+}
+.neon-orange {
+  animation: neon-flicker-orange 6s infinite;
+}
+
+@keyframes neon-flicker-purple {
+  0%, 18%, 20%, 50%, 52%, 90%, 92%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 6px #a855f7, 0 0 14px #a855f7, 0 0 30px #a855f7;
+  }
+  19%, 51%, 91% { opacity: 0.25; text-shadow: none; }
+}
+.neon-purple {
+  animation: neon-flicker-purple 6s infinite reverse; /* Reverse so they don't blink at the exact same time */
+}
+
+/* ── Modal backdrop fade ─────────────────────────────────────────────────── */
+@keyframes fade-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slide-up { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+.modal-backdrop { animation: fade-in  0.2s ease forwards; }
+.modal-card     { animation: slide-up 0.25s ease forwards; }
+
+/* ── Hot pulse ring ──────────────────────────────────────────────────────── */
+@keyframes hot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(239,68,68,0); }
+}
+.hot-ring { animation: hot-pulse 1.6s infinite; }
