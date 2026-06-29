@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { gamesData, CATEGORIES, type Category } from '../data';
 import type { Game } from '../types';
 import TasteModal, { getTastePrefs, hasDoneTasteSetup } from './TasteModal';
-import FooterModal, { type ModalType } from './FooterModals';
 import TypingQuotes from './TypingQuotes';
 import { getPlayCounts, isAutoHot, sortByPopularity, HOT_THRESHOLD } from '../utils/playCount';
 
@@ -163,7 +162,6 @@ export default function Lobby({ onPlay }: LobbyProps) {
   const [selectedCategory, setSelectedCategory] = useState<Category>('ALL');
   const [tastePrefs,       setTastePrefs]       = useState<string[]>(() => getTastePrefs());
   const [showTasteModal,   setShowTasteModal]   = useState(() => !hasDoneTasteSetup());
-  const [activeModal,      setActiveModal]      = useState<ModalType | null>(null);
   const [playCounts,       setPlayCounts]       = useState<Record<string, number>>(() => getPlayCounts());
   const [currentPage,      setCurrentPage]      = useState(1);
   const GAMES_PER_PAGE = 150;
@@ -211,9 +209,6 @@ export default function Lobby({ onPlay }: LobbyProps) {
 
       {/* Taste Modal */}
       {showTasteModal && <TasteModal onDone={handleTasteDone} />}
-
-      {/* Footer Modal */}
-      {activeModal && <FooterModal type={activeModal} onClose={() => setActiveModal(null)} />}
 
       {/* ── STICKY HEADER ─────────────────────────────────────────────── */}
       <header className="sticky top-0 z-30 bg-zinc-950/95 border-b border-zinc-800/80 backdrop-blur-md">
@@ -406,6 +401,30 @@ export default function Lobby({ onPlay }: LobbyProps) {
           )}
         </section>
 
+        {/* ── SEO TEXT BLOCK (For AdSense/Search Bots) ──────────────────── */}
+        <section className="mt-12 pt-8 border-t border-zinc-800/50">
+          <div className="grid md:grid-cols-2 gap-8 text-sm text-zinc-400 leading-relaxed">
+            <div>
+              <h2 className="text-white font-black uppercase tracking-widest mb-3">Free Online Games at Neon Arcade</h2>
+              <p className="mb-4">
+                Welcome to Neon Arcade, your ultimate destination for free online browser games. We offer a massive, carefully curated library of HTML5 games that you can play instantly without any downloads, installations, or subscriptions. Whether you are searching for high-octane racing games, challenging puzzle games, or classic arcade games, our platform is designed to provide seamless entertainment on both desktop and mobile devices.
+              </p>
+              <p>
+                Our mission is to build the fastest, most user-friendly gaming portal on the internet. We prioritize a clean, dark-mode aesthetic that puts the focus entirely on gameplay. Every game in our collection is heavily optimized to ensure lightning-fast load times and smooth performance, regardless of your device's hardware.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-white font-black uppercase tracking-widest mb-3">Play Instantly, Anywhere</h2>
+              <p className="mb-4">
+                Neon Arcade is built using cutting-edge web technologies to guarantee a flawless gaming experience. You don't need a high-end gaming PC to enjoy our catalog; if you have a web browser, you have access to hundreds of premium titles. We regularly update our library with the latest and most popular games to ensure there is always something new to discover.
+              </p>
+              <p>
+                Dive into action-packed shooters, test your brain with logic puzzles, or relax with casual fun games. Our platform is completely free to play, supported by unobtrusive, high-quality advertisements that allow us to keep the servers running and the games flowing. Start playing today and join a growing community of casual gamers!
+              </p>
+            </div>
+          </div>
+        </section>
+
       </main>
 
       {/* ── FOOTER ────────────────────────────────────────────────────── */}
@@ -418,14 +437,14 @@ export default function Lobby({ onPlay }: LobbyProps) {
             <p className="text-[10px] text-zinc-600 mt-0.5">© 2026 Neon Arcade. All rights reserved.</p>
           </div>
           <div className="flex items-center gap-5">
-            {(['terms', 'privacy', 'contact'] as ModalType[]).map((m) => (
-              <button
+            {(['about', 'terms', 'privacy', 'contact']).map((m) => (
+              <a
                 key={m}
-                onClick={() => setActiveModal(m)}
+                href={`/${m}.html`}
                 className="text-[11px] text-zinc-500 hover:text-orange-400 transition-colors uppercase tracking-widest capitalize"
               >
-                {m === 'terms' ? 'Terms of Service' : m === 'privacy' ? 'Privacy Policy' : 'Contact Us'}
-              </button>
+                {m === 'about' ? 'About Us' : m === 'terms' ? 'Terms of Service' : m === 'privacy' ? 'Privacy Policy' : 'Contact Us'}
+              </a>
             ))}
           </div>
         </div>

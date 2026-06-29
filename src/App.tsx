@@ -2,12 +2,17 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import Lobby from './components/Lobby';
 import Play from './components/Play';
+import InfoPage from './components/InfoPage';
 import { incrementPlayCount } from './utils/playCount';
 
 export default function App() {
-  const [currentPath, setCurrentPath] = useState<'/' | '/play.html'>(() => {
+  const [currentPath, setCurrentPath] = useState<string>(() => {
     const path = window.location.pathname;
     if (path.includes('play.html')) return '/play.html';
+    if (path.includes('about.html')) return '/about.html';
+    if (path.includes('contact.html')) return '/contact.html';
+    if (path.includes('terms.html')) return '/terms.html';
+    if (path.includes('privacy.html')) return '/privacy.html';
     return '/';
   });
 
@@ -20,6 +25,18 @@ export default function App() {
       if (path.includes('play.html')) {
         setDirection('forward');
         setCurrentPath('/play.html');
+      } else if (path.includes('about.html')) {
+        setDirection('forward');
+        setCurrentPath('/about.html');
+      } else if (path.includes('contact.html')) {
+        setDirection('forward');
+        setCurrentPath('/contact.html');
+      } else if (path.includes('terms.html')) {
+        setDirection('forward');
+        setCurrentPath('/terms.html');
+      } else if (path.includes('privacy.html')) {
+        setDirection('forward');
+        setCurrentPath('/privacy.html');
       } else {
         setDirection('backward');
         setCurrentPath('/');
@@ -83,6 +100,11 @@ export default function App() {
         >
           {currentPath === '/play.html' ? (
             <Play gameId={selectedGameId} onBackToLobby={navigateToLobby} onPlayGame={navigateToPlay} />
+          ) : currentPath.includes('.html') && currentPath !== '/index.html' ? (
+            <InfoPage 
+              type={currentPath.replace('/', '').replace('.html', '') as any} 
+              onBack={() => { window.location.href = '/'; }} 
+            />
           ) : (
             <Lobby onPlay={navigateToPlay} />
           )}
